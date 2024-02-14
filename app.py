@@ -72,3 +72,12 @@ st.line_chart(df4)
 st.markdown("""
     <div class="center caption margin-top-minus">소셜 메트릭스 ‘플로깅’ 언급량 시각화 (2019.01.01 ~ 2023.12.31)</div>
     """, unsafe_allow_html=True)
+
+df5 = pd.read_excel('./assets/chart05.xlsx', index_col=0)
+
+st.markdown('<br>', unsafe_allow_html=True)
+
+st.bar_chart(df5)
+st.markdown("""
+    <div class="center caption margin-top-minus">대전광역시 내 구 별 생활 쓰레기 배출량 비교 </div>
+    """, unsafe_allow_html=True)

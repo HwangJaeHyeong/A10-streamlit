@@ -11,7 +11,7 @@ with open(filename, 'r', encoding='UTF-8') as f:
 stopwords = {"등", "및", "년", "위해", "있다", "통해", "대해", "위한", "따르면", "밝혔다", "개", "것으로", "등을", "따라", "이", "관련", "기자", "대전시는"}
 
 # 워드클라우드 생성
-wordcloud = WordCloud(font_path="./assets/NanumBarunGothic.ttf", background_color="white", max_words=100, contour_width=3, contour_color='steelblue', stopwords=stopwords)
+wordcloud = WordCloud(background_color="white", max_words=100, contour_width=3, contour_color='steelblue', stopwords=stopwords)
 wordcloud.generate(long_string)
 
 # 그래프 그리기

@@ -69,6 +69,7 @@ st.markdown("""
 
 st.markdown('<br>', unsafe_allow_html=True)
 
+# 폰트 이슈로 서버에서 word cloud 이 계속 깨져서 로컬에서 연산을 돌린 결과값의 사진을 출력하게 구현하였습니다.
 st.image('./assets/chart03.png')
 
 st.markdown("""
@@ -90,23 +91,3 @@ st.markdown("""
 </p><p>워드클라우드에서 보았다시피 인력 및 자원 부족으로 재활용, 수거에 문제가 있다는 것을 뜻합니다. 결국 자원, 인력난인 지금의 대전의 상황에서 시민들의 함께 인식을 바꾸고 행동으로 옮기는 변화가 없으면, 쓰레기 해결하기 어려운 문제라는 것입니다.
 </p><p>그러면 어떻게 시민 의식을 바꾸고, 함께 깨끗한 대전을 만들어갈 수 있을까요?</p>
             """, unsafe_allow_html=True)
-# df4 = pd.read_excel('./assets/chart04.xlsx', index_col=0)
-
-# st.markdown('<br>', unsafe_allow_html=True)
-
-# st.line_chart(df4)
-
-# st.markdown("""
-#     <div class="center caption margin-top-minus">소셜 메트릭스 ‘플로깅’ 언급량 시각화 (2019.01.01 ~ 2023.12.31)</div>
-#     """, unsafe_allow_html=True)
-
-# df5 = pd.read_excel('./assets/chart05.xlsx', index_col=0)
-
-# st.markdown('<br>', unsafe_allow_html=True)
-
-# st.bar_chart(df5)
-# st.markdown("""
-#     <div class="center caption margin-top-minus">대전광역시 내 구 별 생활 쓰레기 배출량 비교 </div>
-#     """, unsafe_allow_html=True)
-
-# st.markdown('<br>', unsafe_allow_html=True)

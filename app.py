@@ -1,8 +1,51 @@
+import matplotlib.pyplot as plt
 import pandas as pd
 import streamlit as st
+from wordcloud import WordCloud
 
-st.write("Hello world")
+# 데이터와 텍스트 파일 로드
+df = pd.read_excel('./assets/chart01.xlsx', index_col="Unnamed: 0")
+filename = './assets/chart03.txt'
+with open(filename, 'r', encoding='UTF-8') as f:
+    long_string = f.read()
+stopwords = {"등", "및", "년", "위해", "있다", "통해", "대해", "위한", "따르면", "밝혔다", "개", "것으로", "등을", "따라", "이", "관련", "기자", "대전시는"}
 
-df = pd.read_excel('./assets/chart01.xlsx', index_col = "Unnamed: 0")
+# 워드클라우드 생성
+wordcloud = WordCloud(font_path="./assets/NanumBarunGothic.ttf", background_color="white", max_words=100, contour_width=3, contour_color='steelblue', stopwords=stopwords)
+wordcloud.generate(long_string)
+
+# 그래프 그리기
+fig, ax = plt.subplots(figsize=(15, 10))
+ax.imshow(wordcloud, interpolation="bilinear")
+ax.axis("off")
+
+
+st.header("SPARCS 해커톤 - A10 streamlit")
+
+st.markdown('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+st.markdown('<br>', unsafe_allow_html=True)
 
 st.bar_chart(df)
+st.caption("대전시 사회 문제 해결 아이디어 투표 결과 (24.02.13 오후 6시)")
+
+df=pd.read_excel('./assets/chart02.xlsx',index_col=0)
+
+st.markdown('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+st.markdown('<br>', unsafe_allow_html=True)
+
+st.line_chart(df)
+st.caption("각 지역 별 생활 폐기물 인력 및 자원 비교 ")
+
+st.markdown('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+st.markdown('<br>', unsafe_allow_html=True)
+
+st.pyplot(fig) 
+st.caption("‘대전 생활폐기물’ 검색 크롤링 결과, 총 92개 뉴스 기사")
+
+df4 = pd.read_excel('./assets/chart04.xlsx', index_col=0)
+
+st.markdown('<style>div.row-widget.stRadio > div{flex-direction:row;}</style>', unsafe_allow_html=True)
+st.markdown('<br>', unsafe_allow_html=True)
+
+st.line_chart(df4)
+st.caption("소셜 메트릭스 ‘플로깅’ 언급량 시각화 (2019.01.01 ~ 2023.12.31)")
